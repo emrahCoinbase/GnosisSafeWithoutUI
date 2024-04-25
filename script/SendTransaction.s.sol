@@ -5,7 +5,7 @@ import {Script, console} from "forge-std/Script.sol";
 import { IMulticall3 } from "forge-std/interfaces/IMulticall3.sol";
 import {Enum} from "./Enum.sol";
 import { IGnosisSafe } from "./IGnosisSafe.sol";
-import {TestMultisigTransaction} from "../src/Test.sol";
+import {TestMultisigTransaction} from "../src/TestMultisigTransaction.sol";
 import { LibSort } from "./LibSort.sol";
 
 contract TestMultiSigWallet  is Script {
@@ -34,7 +34,7 @@ contract TestMultiSigWallet  is Script {
         uint256 nonce = safe.nonce();
 
         // Build the calldata.
-        bytes memory data = buildCalldata(address(sampleCont));
+        bytes memory data = buildCalldata();
 
         // Compute the safe transaction hash
         bytes32 hash = safe.getTransactionHash({
